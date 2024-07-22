@@ -12,36 +12,14 @@ import {
   ActivityIndicator,
   Alert,
 } from "react-native";
+import Greet from "./components/Greet";
 const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <Button title="Alert" onPress={() => Alert.alert("invalid data")} />
-      <Button
-        title="Alert2"
-        onPress={() => Alert.alert("invalid data", "dob incorrect")}
-      />
-      <Button
-        title="Alert3"
-        onPress={() =>
-          Alert.alert("invalid data", "dob incorrect", [
-            {
-              text: "cancel",
-              onPress: () => {
-                console.log("cancel pressed");
-              },
-            },
-            {
-              text: "ok",
-              onPress: () => {
-                console.log("ok pressed");
-              },
-            },
-          ])
-        }
-      />
+      <Greet name="Bruce Wayne" />
+      <Greet name="Clark Kent" />
     </View>
   );
 }
