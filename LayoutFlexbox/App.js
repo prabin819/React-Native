@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
     // flex: 1,
     height: 300,
     flexWrap: "wrap",
+    alignContent: "stretch",
   },
 });
