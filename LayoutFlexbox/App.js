@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
     // flex: 1,
     height: 300,
     flexWrap: "wrap",
-    alignContent: "stretch",
+    // rowGap: 20,
+    // columnGap: 30,
+    gap: 10,
   },
 });
