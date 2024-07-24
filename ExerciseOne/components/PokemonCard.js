@@ -1,10 +1,25 @@
-import { View, Text, StyleSheet, Platform } from "react-native";
+import { View, Text, StyleSheet, Platform, Image } from "react-native";
 import React from "react";
 
-const PokemonCard = () => {
+const PokemonCard = ({ name, image, type, hp, moves, weaknesses }) => {
   return (
     <View style={styles.card}>
-      <Text>PokemonCard</Text>
+      <View>
+        <Text>{name}</Text>
+        <Text>{hp}</Text>
+      </View>
+
+      {/* <Image source={image} accessibilityLabel={`${name} pokemon`} /> */}
+
+      <View>
+        <Text>{type}</Text>
+      </View>
+      <View>
+        <Text>MOVES: {moves.join(", ")}</Text>
+      </View>
+      <View>
+        <Text>WEAKNESSES: {weaknesses.join(", ")}</Text>
+      </View>
     </View>
   );
 };
