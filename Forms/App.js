@@ -26,6 +26,14 @@ export default function App() {
     return Object.keys(errors).length === 0;
   };
 
+  const handleSubmit = () => {
+    if (validateForm()) {
+      console.log("Submitted", username, password);
+      setUsername("");
+      setPassword("");
+      setErrors({});
+    }
+  };
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -58,7 +66,7 @@ export default function App() {
         {errors.password ? (
           <Text style={styles.errorText}>{errors.password}</Text>
         ) : null}
-        <Button title="Login" onPress={() => {}} />
+        <Button title="Login" onPress={handleSubmit} />
       </View>
     </KeyboardAvoidingView>
   );
