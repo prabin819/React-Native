@@ -25,7 +25,7 @@ export default function App() {
       </ScrollView> */}
       <View style={styles.scrollView}>
         <FlatList
-          data={pokemonList}
+          data={[]}
           renderItem={({ item }) => (
             <View style={styles.card} key={item.id}>
               <Text style={styles.cardText}>{item.type}</Text>
@@ -33,7 +33,9 @@ export default function App() {
             </View>
           )}
           //horizontal={true}
-          keyExtractor={(item, index) => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={<View style={{ height: 16 }}></View>}
+          ListEmptyComponent={<Text>No items found</Text>}
         />
       </View>
     </SafeAreaView>
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     borderWidth: 1,
-    marginBottom: 16,
+    //marginBottom: 16,
   },
   cardText: {
     fontSize: 30,
