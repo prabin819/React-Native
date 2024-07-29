@@ -6,10 +6,12 @@ import {
   StyleSheet,
   FlatList,
   Text,
+  ActivityIndicator,
 } from "react-native";
 
 export default function App() {
   const [postList, setPostList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async (limit = 10) => {
     const response = await fetch(
@@ -17,11 +19,21 @@ export default function App() {
     );
     const data = await response.json();
     setPostList(data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -78,5 +90,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: "center",
     marginTop: 12,
+  },
+  loadingContainer: {
+    flex: 1,
+    backgroundColor: "#F5F5F5",
+    paddingTop: StatusBar.currentHeight,
+    justifyContent: "center", // Center the loading spinner
+    alignItems: "center", // Center the loading spinner
   },
 });
