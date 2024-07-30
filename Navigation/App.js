@@ -10,7 +10,11 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         {/* by default, the topmost screen in the navigator is the initial screen if initialRouteName is not specified*/}
-        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen
+          name="About"
+          component={AboutScreen}
+          initialParams={{ name: "Guest" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
